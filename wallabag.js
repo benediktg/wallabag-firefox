@@ -1,6 +1,11 @@
 var Request = require("sdk/request").Request;
 
-function connect(client_id, client_secret, username, password, success, error) {
+function Wallabag(url, token) {
+    this.url = url;
+    this.token = token;
+}
+
+Wallabag.prototype.connect = function connect(client_id, client_secret, username, password, success, error) {
     Request({
         url: "http://v2.wallabag.org/oauth/v2/token",
         content: {

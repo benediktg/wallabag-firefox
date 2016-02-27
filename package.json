@@ -12,5 +12,32 @@
   "license": "MIT",
   "keywords": [
     "jetpack"
+  ],
+  "preferences": [
+    {
+        "name": "wallabagUrl",
+        "title": "Wallabag URL",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "wallabagClientId",
+        "title": "Client ID.",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "wallabagSecretId",
+        "title": "Secret ID.",
+        "type": "string",
+        "value": ""
+    },
+    {
+        "name": "wallabagToken",
+        "title": "Connection token",
+        "type": "string",
+        "value": "",
+        "hidden": true
+    }
   ]
 }
