@@ -33,8 +33,15 @@
         "value": ""
     },
     {
-        "name": "wallabagToken",
-        "title": "Connection token",
+        "name": "wallabagAccessToken",
+        "title": "Access token",
+        "type": "string",
+        "value": "",
+        "hidden": true
+    },
+    {
+        "name": "wallabagRefreshToken",
+        "title": "Refresh token",
         "type": "string",
         "value": "",
         "hidden": true

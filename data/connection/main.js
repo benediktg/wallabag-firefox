@@ -1,13 +1,9 @@
 var form = document.getElementById("connectionForm");
 connectionForm.addEventListener('submit', function (event) {
-    var client_id = document.getElementById("client_id").value;
-    var client_secret = document.getElementById("client_secret").value;
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
     self.port.emit("connection", {
-        client_id: client_id,
-        client_secret: client_secret,
         username: username,
         password: password
     });
