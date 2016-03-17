@@ -4,6 +4,7 @@ var prefs = require('sdk/simple-prefs').prefs;
 var configuration = require("configuration");
 var server = require("server");
 var connection = require("connection");
+var save = require("save");
 var button_library = require("button");
 
 // instance with all the information to contact the server
@@ -40,22 +41,35 @@ function handleChange() {
           );
           connection_panel.hide();
           button.state('window', {checked: false});
+          handleChange();
         }
       );
 
+      connection_panel.on('hide', function() {
+        button.state('window', {checked: false});
+      });
       connection_panel.show({
-          position: button
+          position: button,
+          height: 300
       });
     }, function() {
+      // if the config is incorrect uncheck the button
       button.state('window', {checked: false});
     });
   } else {
     console.log("Wallabag server is ready! I can post!");
+    save_panel = save.create_panel();
+    save_panel.on('hide', function() {
+      button.state('window', {checked: false});
+    });
+    save_panel.show({
+        position: button
+    });
     server.post(wallabag_server, tabs.activeTab.url).then(function(data) {
-      button.state('window', {checked: false});
+      save.send_post(save_panel, {
+        success: true
+      });
     }, function(data) {
-      button.state('window', {checked: false});
-
       if (data.error === "invalid_grant") {
         console.log("Access token expired.");
         connection.refresh(wallabag_server.url, wallabag_server.client_id, wallabag_server.client_secret, wallabag_server.refresh_token).then(function(data) {
@@ -66,7 +80,11 @@ function handleChange() {
           console.log("Impossible to refresh the access token.");
         });
       } else {
-        console.log("Problem");
+        console.log("Impossible to save the article.");
+        console.log(data);
+        save.send_post(save_panel, {
+          success: false
+        });
       }
     });
   }
