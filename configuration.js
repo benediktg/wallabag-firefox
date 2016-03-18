@@ -1,4 +1,6 @@
 var prefs = require('sdk/simple-prefs').prefs;
+var ss = require("sdk/simple-storage");
+
 var _ = require("sdk/l10n").get;
 const { resolve } = require('sdk/core/promise');
 const { reject } = require('sdk/core/promise');
@@ -11,7 +13,7 @@ var urls = require('sdk/url');
  * Check if the configuration is ok for connection
  */
 function has_access() {
-    return prefs.wallabagUrl && prefs.wallabagClientId && prefs.wallabagClientSecret && prefs.wallabagAccessToken && prefs.wallabagRefreshToken && urls.isValidURI(prefs.wallabagUrl);
+    return prefs.wallabagUrl && prefs.wallabagClientId && prefs.wallabagSecretId && ss.storage.wallabagAccessToken && ss.storage.wallabagRefreshToken && urls.isValidURI(prefs.wallabagUrl);
 }
 
 /**
@@ -43,8 +45,8 @@ function verify_config() {
 }
 
 function set(wallabag_access_token, wallabag_refresh_token) {
-  prefs.wallabagAccessToken = wallabag_access_token;
-  prefs.wallabagRefreshToken = wallabag_refresh_token;
+  ss.storage.wallabagAccessToken = wallabag_access_token;
+  ss.storage.wallabagRefreshToken = wallabag_refresh_token;
 }
 
 exports.has_access = has_access;

@@ -34,20 +34,6 @@
         "title": "Secret ID.",
         "type": "string",
         "value": ""
-    },
-    {
-        "name": "wallabagAccessToken",
-        "title": "Access token",
-        "type": "string",
-        "value": "",
-        "hidden": true
-    },
-    {
-        "name": "wallabagRefreshToken",
-        "title": "Refresh token",
-        "type": "string",
-        "value": "",
-        "hidden": true
     }
   ]
 }
