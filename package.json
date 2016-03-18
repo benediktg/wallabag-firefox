@@ -1,17 +1,20 @@
 {
-  "title": "Wallabag",
-  "name": "wallabag-firefox",
-  "version": "0.0.1",
-  "description": "Wallabag is an open-source and self-hosted alternative to Pocket, Instapaper, etc.",
-  "main": "index.js",
+  "title": "Wallabag v2",
+  "name": "wallabag-v2",
+  "version": "0.0.2",
+  "description": "Post webpages to your Wallabag v2 server",
   "author": "Thibaud Dauce",
+  "homepage": "https://wallabag.org",
+  "icon": "./data/icon-64.png",
+  "icon64": "./data/icon-64.png",
+  "main": "index.js",
   "engines": {
     "firefox": ">=38.0a1",
     "fennec": ">=38.0a1"
   },
   "license": "MIT",
   "keywords": [
-    "jetpack"
+    "read", "wallabag"
   ],
   "preferences": [
     {
