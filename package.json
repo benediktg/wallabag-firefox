@@ -5,8 +5,8 @@
   "description": "Post webpages to your Wallabag v2 server",
   "author": "Thibaud Dauce",
   "homepage": "https://wallabag.org",
-  "icon": "./data/icon-64.png",
-  "icon64": "./data/icon-64.png",
+  "icon": "./data/logo-64.png",
+  "icon64": "./data/logo-64.png",
   "main": "index.js",
   "engines": {
     "firefox": ">=38.0a1",
