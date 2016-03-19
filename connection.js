@@ -57,7 +57,8 @@ function refresh(url, client_id, client_secret, refresh_token) {
     content: {
       grant_type: 'refresh_token',
       client_id: client_id,
-      client_secret: client_secret
+      client_secret: client_secret,
+      refresh_token: refresh_token
     },
     onComplete: function(response) {
       console.log(response);
