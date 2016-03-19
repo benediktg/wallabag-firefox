@@ -76,6 +76,8 @@ function handleChange() {
         connection.refresh(wallabag_server.url, wallabag_server.client_id, wallabag_server.client_secret, wallabag_server.refresh_token).then(function(data) {
           console.log(data);
           configuration.set(data.access_token, data.refresh_token);
+          wallabag_server.access_token = data.access_token;
+          wallabag_server.refresh_token = data.refresh_token;
           console.log("Access token refreshed.");
         }, function(data) {
           console.log(data);
