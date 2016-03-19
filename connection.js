@@ -53,13 +53,14 @@ function refresh(url, client_id, client_secret, refresh_token) {
   var deferred = defer();
 
   Request({
-    url: wallabag_url + "/oauth/v2/token",
+    url: url + "/oauth/v2/token",
     content: {
       grant_type: 'refresh_token',
       client_id: client_id,
       client_secret: client_secret
     },
     onComplete: function(response) {
+      console.log(response);
       if (response.status == 200) {
           deferred.resolve(response.json);
       } else {
@@ -72,3 +73,5 @@ function refresh(url, client_id, client_secret, refresh_token) {
 }
 
 exports.create_panel = create_panel;
+exports.connect = connect;
+exports.refresh = refresh;

@@ -14,7 +14,7 @@ var wallabag_server;
 // if we have an URL and an access token
 if (configuration.has_access()) {
   console.log("Access token existing, trying to create a server…");
-  wallabag_server = server.create(prefs.wallabagUrl, prefs.wallabagClientId, prefs.wallabagClientSecret, ss.storage.wallabagAccessToken, ss.storage.wallabagRefreshToken);
+  wallabag_server = server.create(prefs.wallabagUrl, prefs.wallabagClientId, prefs.wallabagSecretId, ss.storage.wallabagAccessToken, ss.storage.wallabagRefreshToken);
 }
 
 var button = button_library.create(handleChange);
@@ -72,7 +72,7 @@ function handleChange() {
       });
     }, function(data) {
       if (data.error === "invalid_grant") {
-        console.log("Access token expired.");
+        console.log("Access token expired. Trying to refresh with " + wallabag_server.client_id + " and " + wallabag_server.client_secret);
         connection.refresh(wallabag_server.url, wallabag_server.client_id, wallabag_server.client_secret, wallabag_server.refresh_token).then(function(data) {
           console.log(data);
           configuration.set(data.access_token, data.refresh_token);
@@ -80,6 +80,8 @@ function handleChange() {
         }, function(data) {
           console.log(data);
           console.log("Impossible to refresh the access token.");
+          wallabag_server = undefined;
+          handleChange();
         });
       } else {
         console.log("Impossible to save the article.");
@@ -88,6 +90,8 @@ function handleChange() {
           success: false
         });
       }
+    }, function(error) {
+      console.log(error);
     });
   }
 };
