@@ -79,6 +79,7 @@ function handleChange() {
           wallabag_server.access_token = data.access_token;
           wallabag_server.refresh_token = data.refresh_token;
           console.log("Access token refreshed.");
+          handleChange();
         }, function(data) {
           console.log(data);
           console.log("Impossible to refresh the access token.");
