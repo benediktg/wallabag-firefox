@@ -1,7 +1,7 @@
 {
   "title": "Wallabag v2",
   "name": "wallabag-v2",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Post webpages to your Wallabag v2 server",
   "author": "Thibaud Dauce",
   "homepage": "https://wallabag.org",
