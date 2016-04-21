@@ -1,6 +1,7 @@
 var panels = require("sdk/panel");
 var Request = require("sdk/request").Request;
 const { defer } = require('sdk/core/promise');
+var _ = require("sdk/l10n").get;
 
 function create_panel(wallabag_url, wallabag_client_id, wallabag_client_secret, onSuccess) {
     var connection_panel = panels.Panel({
@@ -21,7 +22,7 @@ function create_panel(wallabag_url, wallabag_client_id, wallabag_client_secret, 
         },
         function(response) {
           console.log("Connection error: " + response.status);
-          connection_panel.port.emit("error", "Impossible to connect.");
+          connection_panel.port.emit("error", _('connection_impossible'));
         }
       );
     });
