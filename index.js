@@ -20,9 +20,9 @@ if (configuration.has_access()) {
 var button = button_library.create(handleChange);
 
 function handleChange() {
-  // if the Wallabag server is not defined (unreachable or no connection)
+  // if the wallabag server is not defined (unreachable or no connection)
   if (! wallabag_server) {
-    console.log("Wallabag server undefined, checking configuration…");
+    console.log("wallabag server undefined, checking configuration…");
 
     // verify_config will redirect the user if something is wrong
     configuration.verify_config().then(function(wallabag) {
@@ -58,7 +58,7 @@ function handleChange() {
       button.state('window', {checked: false});
     });
   } else {
-    console.log("Wallabag server is ready! I can post!");
+    console.log("wallabag server is ready! I can post!");
     save_panel = save.create_panel();
     save_panel.on('hide', function() {
       button.state('window', {checked: false});

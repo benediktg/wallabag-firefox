@@ -1,8 +1,8 @@
 {
-  "title": "Wallabag v2",
+  "title": "wallabag v2",
   "name": "wallabag-v2",
   "version": "0.0.5",
-  "description": "Post webpages to your Wallabag v2 server",
+  "description": "Post webpages to your wallabag v2 server",
   "author": "Thibaud Dauce",
   "homepage": "https://wallabag.org",
   "icon": "./data/logo-64.png",
@@ -19,7 +19,7 @@
   "preferences": [
     {
         "name": "wallabagUrl",
-        "title": "Wallabag URL",
+        "title": "wallabag URL",
         "type": "string",
         "value": ""
     },
