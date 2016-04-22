@@ -1,6 +1,8 @@
 var tabs = require('sdk/tabs');
-var prefs = require('sdk/simple-prefs').prefs;
+var simplePrefs = require('sdk/simple-prefs')
+var prefs = simplePrefs.prefs;
 var ss = require("sdk/simple-storage");
+var {Hotkey} = require('sdk/hotkeys');
 
 var configuration = require("configuration");
 var server = require("server");
@@ -18,6 +20,40 @@ if (configuration.has_access()) {
 }
 
 var button = button_library.create(handleChange);
+
+var shortcutHotKey = function () {
+  var key = null;
+
+  function getHotkeyPreference() {
+    return prefs.wallabagShortcutKey;
+  }
+
+  function reset() {
+    if (key) {
+      key.destroy();
+    }
+
+    var newKey = getHotkeyPreference();
+    if (/^\w$/.test(newKey)) {
+      set(newKey);
+    }
+  }
+
+  function set(newKey) {
+    key = Hotkey({
+        combo: 'accel-alt-' + (newKey || getHotkeyPreference()),
+        onPress: handleChange
+    });
+  }
+
+  return {
+    reset: reset,
+    set: set
+  }
+}();
+
+shortcutHotKey.set();
+simplePrefs.on('wallabagShortcutKey', shortcutHotKey.reset);
 
 function handleChange() {
   // if the wallabag server is not defined (unreachable or no connection)
