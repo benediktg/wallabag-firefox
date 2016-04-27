@@ -34,6 +34,13 @@
         "title": "Secret ID.",
         "type": "string",
         "value": ""
+    },
+    {
+        "name": "wallabagShortcutKey",
+        "title": "Shortcut key",
+        "description": "Shortcut will be accel-alt-(chosen key value)",
+        "type": "string",
+        "value": "s"
     }
   ]
 }
