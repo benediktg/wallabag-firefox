@@ -25,20 +25,20 @@
     },
     {
         "name": "wallabagClientId",
-        "title": "Client ID.",
+        "title": "Client ID",
         "type": "string",
         "value": ""
     },
     {
         "name": "wallabagSecretId",
-        "title": "Secret ID.",
+        "title": "Secret ID",
         "type": "string",
         "value": ""
     },
     {
         "name": "wallabagShortcutKey",
         "title": "Shortcut key",
-        "description": "Shortcut will be accel-alt-(chosen key value)",
+        "description": "Shortcut will be ctrl-alt-(chosen key value)",
         "type": "string",
         "value": "s"
     }
