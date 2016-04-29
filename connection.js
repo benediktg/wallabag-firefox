@@ -21,7 +21,8 @@ function create_panel(wallabag_url, wallabag_client_id, wallabag_client_secret, 
           onSuccess(response.access_token, response.refresh_token);
         },
         function(response) {
-          console.log("Connection error: " + response);
+          console.log("Connection error:");
+          console.log(response);
           connection_panel.port.emit("error", _('connection_impossible'));
         }
       );

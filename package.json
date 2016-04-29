@@ -1,7 +1,7 @@
 {
   "title": "wallabag v2",
   "name": "wallabag-v2",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Post webpages to your wallabag v2 server",
   "author": "Thibaud Dauce",
   "homepage": "https://wallabag.org",
@@ -25,20 +25,20 @@
     },
     {
         "name": "wallabagClientId",
-        "title": "Client ID.",
+        "title": "Client ID",
         "type": "string",
         "value": ""
     },
     {
         "name": "wallabagSecretId",
-        "title": "Secret ID.",
+        "title": "Secret ID",
         "type": "string",
         "value": ""
     },
     {
         "name": "wallabagShortcutKey",
         "title": "Shortcut key",
-        "description": "Shortcut will be accel-alt-(chosen key value)",
+        "description": "Shortcut will be ctrl-alt-(chosen key value)",
         "type": "string",
         "value": "s"
     }
